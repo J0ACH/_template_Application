@@ -1,0 +1,16 @@
+
+#SET(SharedLib_DIR )
+FIND_PACKAGE(SharedLib)
+
+#MESSAGE(STATUS "SharedLib_INCLUDE_DIRS: " ${SharedLib_INCLUDE_DIRS})
+#MESSAGE(STATUS "SharedLib_LIBRARIES: " ${SharedLib_LIBRARIES})
+#MESSAGE(STATUS "SharedLib_DLL: " ${SharedLib_DLL})
+
+ADD_SUBDIRECTORY(App)
+
+ADD_EXECUTABLE(app 
+  ${app_src}
+  ${app_hdr}
+)
+
+#TARGET_LINK_LIBRARIES(app PUBLIC SharedLib)
