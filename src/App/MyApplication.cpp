@@ -1,8 +1,11 @@
-//#include "MyClass.h"
+#include <QApplication>
+#include "MyClass.h"
+
+using namespace MyNamespace;
 
 int main(int argc, char** argv) {
 
-	//MyClass frame();
-	//getchar();
-	return 0;
+	QApplication app(argc, argv);
+	MyClass frame;
+	return app.exec();
 }
