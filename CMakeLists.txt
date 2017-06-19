@@ -16,6 +16,4 @@ SET(CMAKE_INSTALL_PREFIX ${BUILD_DIR})
 #    INSTALL_COMMAND "" 
 #)
 
-#INCLUDE(cmake/AddQtModule.cmake)
-
 ADD_SUBDIRECTORY(src)
