@@ -1,9 +1,7 @@
-FUNCTION (InstallRequiredLibraries InstallDir Target)
+FUNCTION (InstallRequiredLibraries InstallDir)
 	
 	MESSAGE(STATUS "InstallRequiredLibraries macro to directory ${InstallDir} init")
-	MESSAGE(STATUS "Target: " ${Target})
-	MESSAGE(STATUS "TargetFile: " $<TARGET_FILE:${Target}> )
-
+	
 	IF(MSVC)
 	
 		SET(programfilesx86 "ProgramFiles(x86)")
