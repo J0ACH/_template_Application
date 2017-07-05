@@ -32,4 +32,10 @@ SET(CMAKE_AUTOMOC ON)
 #execute_process(COMMAND "${CMAKE_COMMAND}" --build .
 #  WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/googletest-download" )
 
+INCLUDE(DownloadGit)
+DownloadGit (
+	GIT_REPOSITORY "aaa"
+	GIT_FOLDERS "bbb" "ccc"
+)
+
 ADD_SUBDIRECTORY(src)
