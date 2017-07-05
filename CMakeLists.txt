@@ -7,17 +7,31 @@ SET(CMAKE_INSTALL_PREFIX ${BUILD_DIR})
 SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake_modules)
 set(CMAKE_AUTOMOC ON)
 
-#INCLUDE(ExternalProject)
+#set( SharedLib_inst_comm INSTALL_COMMAND "" )
+INCLUDE(ExternalProject)
+ExternalProject_Add (
+	SharedLib
+    GIT_REPOSITORY https://github.com/J0ACH/_template_SharedLib.git
+    GIT_TAG "master"
+	#SOURCE_DIR "${CMAKE_SOURCE_DIR}/externalParts/SharedLib"
+    UPDATE_COMMAND ""
+	CMAKE_GENERATOR "Visual Studio 15 2017 Win64"
+	
+	#DOWNLOAD_DIR
+	#INSTALL_DIR ${BUILD_DIR}
+    #INSTALL_COMMAND ${SharedLib_inst_comm} 
+	#INSTALL_DIR ${BUILD_DIR}/install
+  	CMAKE_ARGS
+		"-DBUILD_DIR=${BUILD_DIR}/external_libraries/SharedLib"
+		"-DCMAKE_INSTALL_PREFIX=${BUILD_DIR}"
+		"-DCMAKE_CONFIGURATION_TYPES=${CMAKE_CONFIGURATION_TYPES}"
+		
+				
+)
 
-#ExternalProject_Add (
-#	SharedLib
-#    GIT_REPOSITORY https://github.com/J0ACH/_template_SharedLib.git
-#    GIT_TAG "master"
-#	#SOURCE_DIR "${CMAKE_SOURCE_DIR}/externalParts/SharedLib"
-#    UPDATE_COMMAND ""
-#    INSTALL_COMMAND "" 
-#)
+#install(DIRECTORY ${SharedLib_INSTALL_DIR}/ DESTINATION install)
 
+#MESSAGE(STATUS "SharedLib_LOCATION: " ${SharedLib_LOCATION})
 
 
 ADD_SUBDIRECTORY(src)

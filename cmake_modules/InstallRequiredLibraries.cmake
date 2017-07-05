@@ -1,30 +1,38 @@
-FUNCTION (InstallRequiredLibraries InstallDir)
+FUNCTION (InstallRequiredLibraries InstallDir Target)
 	
 	MESSAGE(STATUS "InstallRequiredLibraries macro to directory ${InstallDir} init")
+	MESSAGE(STATUS "Target: " ${Target})
+	MESSAGE(STATUS "TargetFile: " $<TARGET_FILE:${Target}> )
+
+	IF(MSVC)
 	
-	SET(programfilesx86 "ProgramFiles(x86)")
-	SET(programfiles_DIR $ENV{${programfilesx86}})
+		SET(programfilesx86 "ProgramFiles(x86)")
+		SET(programfiles_DIR $ENV{${programfilesx86}})
 	
-	find_file (vcruntime 
-		NAMES vcruntime140.dll
-		PATHS 
-			"${programfiles_DIR}/Microsoft Visual Studio/2017/Community/VC/Redist/MSVC/14.10.25008/x64/Microsoft.VC150.CRT"
-		NO_DEFAULT_PATH
-	)
-	LIST(APPEND MS_DLLS ${vcruntime})
+		find_file (vcruntime 
+			NAMES vcruntime140.dll
+			PATHS 
+				"${programfiles_DIR}/Microsoft Visual Studio/2017/Community/VC/Redist/MSVC/14.10.25008/x64/Microsoft.VC150.CRT"
+			NO_DEFAULT_PATH
+		)
+		LIST(APPEND MS_DLLS ${vcruntime})
 		
-	find_file (msvcp 
-		NAMES msvcp140.dll
-		PATHS 
-			"${programfiles_DIR}/Microsoft Visual Studio/2017/Community/VC/Redist/MSVC/14.10.25008/x64/Microsoft.VC150.CRT"			
-		NO_DEFAULT_PATH
-	)
-	LIST(APPEND MS_DLLS ${msvcp})
+		find_file (msvcp 
+			NAMES msvcp140.dll
+			PATHS 
+				"${programfiles_DIR}/Microsoft Visual Studio/2017/Community/VC/Redist/MSVC/14.10.25008/x64/Microsoft.VC150.CRT"			
+			NO_DEFAULT_PATH
+		)
+		LIST(APPEND MS_DLLS ${msvcp})
 		
-	MESSAGE(STATUS "MS_DLLS: ")
-	FOREACH(onePath ${MS_DLLS})
-		MESSAGE(STATUS \t - ${onePath})
-	ENDFOREACH(onePath)
+		MESSAGE(STATUS "MS_DLLS: ")
+		FOREACH(onePath ${MS_DLLS})
+			MESSAGE(STATUS \t - ${onePath})
+		ENDFOREACH(onePath)
+
+		INSTALL(FILES ${MS_DLLS} DESTINATION ${InstallDir})
+
+	ENDIF(MSVC)
 	
 	find_file (qtcore 
 		NAMES Qt5Core.dll Qt5Gui.dll
@@ -64,7 +72,7 @@ FUNCTION (InstallRequiredLibraries InstallDir)
 		MESSAGE(STATUS \t - ${onePath})
 	ENDFOREACH(onePath)
 
-	INSTALL(FILES ${MS_DLLS} DESTINATION ${InstallDir})
+		
 	INSTALL(FILES ${QT_DLLS} DESTINATION ${InstallDir})
 	INSTALL(FILES ${QT_PLATFORMS} DESTINATION ${InstallDir}/platforms)
 

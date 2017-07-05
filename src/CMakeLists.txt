@@ -15,8 +15,10 @@ ADD_EXECUTABLE(app
   ${app_hdr}
 )
 
+ADD_DEPENDENCIES(app SharedLib)
+
 TARGET_LINK_LIBRARIES(app PUBLIC 
-	SharedLib
+	#SharedLib
 	Qt5::WinMain # dulezity pro main() funkci
 )
 
@@ -30,7 +32,7 @@ MESSAGE(STATUS "SharedLib_INSTALL_DIR: " ${SharedLib_INSTALL_DIR} )
 
 INSTALL(TARGETS app RUNTIME DESTINATION install)
 
-INSTALL(FILES ${SharedLib_LOCATION} DESTINATION install)
+#INCLUDE(InstallRequiredLibraries)
+#InstallRequiredLibraries(install)
+#INSTALL(FILES ${SharedLib_LOCATION} DESTINATION install)
 
-INCLUDE(InstallRequiredLibraries)
-InstallRequiredLibraries(install)
