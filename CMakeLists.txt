@@ -8,6 +8,8 @@ SET(CMAKE_INSTALL_PREFIX ${BUILD_DIR})
 SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake_modules)
 SET(CMAKE_AUTOMOC ON)
 
+#[[
+
 INCLUDE(DownloadGit)
 DownloadGit (
 	PROJECT SharedLib
@@ -15,5 +17,6 @@ DownloadGit (
 	GIT_FOLDERS "bbb" "ccc"
 	SOURCE_DIR ${BUILD_DIR}/external_libraries/SharedLib
 )
+#]]
 
-#ADD_SUBDIRECTORY(src)
+ADD_SUBDIRECTORY(src)
