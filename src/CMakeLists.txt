@@ -15,12 +15,13 @@ add_executable(app
 )
 
 target_include_directories(app PRIVATE 
-	$<TARGET_PROPERTY:SharedLib,INTERFACE_INCLUDE_DIRECTORIES>
+	#$<TARGET_PROPERTY:SharedLib,INTERFACE_INCLUDE_DIRECTORIES>
 	$<TARGET_PROPERTY:Qt5::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
 )
 
 target_link_libraries(app PRIVATE 
-	$<TARGET_LINKER_FILE:SharedLib> 
+	SharedLib
+	#$<TARGET_LINKER_FILE:SharedLib> 
 	$<TARGET_LINKER_FILE:Qt5::Widgets>
 	$<TARGET_LINKER_FILE:Qt5::WinMain> # dulezity pro main() funkci
 )
