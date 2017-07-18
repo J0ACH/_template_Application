@@ -1,5 +1,5 @@
 
-FIND_PACKAGE(SharedLib REQUIRED)
+find_package(SharedLib REQUIRED)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 #MESSAGE(STATUS "SharedLib_INCLUDE_DIRS: " ${SharedLib_INCLUDE_DIRS})
