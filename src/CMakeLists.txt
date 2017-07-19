@@ -1,6 +1,6 @@
 
 find_package(SharedLib 0.2.0 REQUIRED)
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+#find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 MESSAGE(STATUS "SharedLib_VERSION: " ${SharedLib_VERSION})
 MESSAGE(STATUS "Qt5_VERSION: " ${Qt5_VERSION})
@@ -19,14 +19,14 @@ add_executable(app
 
 target_include_directories(app PRIVATE 
 	#$<TARGET_PROPERTY:SharedLib,INTERFACE_INCLUDE_DIRECTORIES>
-	$<TARGET_PROPERTY:Qt5::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
+	#$<TARGET_PROPERTY:Qt5::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
 )
 
 target_link_libraries(app PRIVATE 
 	SharedLib
 	#$<TARGET_LINKER_FILE:SharedLib> 
-	$<TARGET_LINKER_FILE:Qt5::Widgets>
-	$<TARGET_LINKER_FILE:Qt5::WinMain> # dulezity pro main() funkci
+	#$<TARGET_LINKER_FILE:Qt5::Widgets>
+	#$<TARGET_LINKER_FILE:Qt5::WinMain> # dulezity pro main() funkci
 )
 
 IF(WIN32)
@@ -40,5 +40,5 @@ ENDIF(WIN32)
 install(TARGETS app RUNTIME DESTINATION install)
 install(FILES $<TARGET_FILE:SharedLib> DESTINATION install)
 
-INCLUDE(InstallRequiredLibraries)
+include(InstallRequiredLibraries)
 InstallRequiredLibraries(install)
