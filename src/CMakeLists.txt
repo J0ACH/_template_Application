@@ -1,6 +1,9 @@
 
-find_package(SharedLib REQUIRED)
+find_package(SharedLib 0.2.0 REQUIRED)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
+
+MESSAGE(STATUS "SharedLib_VERSION: " ${SharedLib_VERSION})
+MESSAGE(STATUS "Qt5_VERSION: " ${Qt5_VERSION})
 
 #MESSAGE(STATUS "SharedLib_INCLUDE_DIRS: " ${SharedLib_INCLUDE_DIRS})
 #MESSAGE(STATUS "SharedLib_LIBRARIES: " ${SharedLib_LIBRARIES})
