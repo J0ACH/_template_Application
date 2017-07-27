@@ -19,4 +19,7 @@ DownloadGit (
 )
 #]]
 
+message(STATUS "CMAKE_PREFIX_PATH:" $ENV{CMAKE_PREFIX_PATH})
+message(STATUS "CMAKE_SYSTEM_PREFIX_PATH:" ${CMAKE_SYSTEM_PREFIX_PATH})
+
 add_subdirectory(src)

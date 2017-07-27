@@ -2,12 +2,9 @@
 find_package(SharedLib 0.2.0 REQUIRED)
 #find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-MESSAGE(STATUS "SharedLib_VERSION: " ${SharedLib_VERSION})
-MESSAGE(STATUS "Qt5_VERSION: " ${Qt5_VERSION})
-
 #MESSAGE(STATUS "SharedLib_INCLUDE_DIRS: " ${SharedLib_INCLUDE_DIRS})
 #MESSAGE(STATUS "SharedLib_LIBRARIES: " ${SharedLib_LIBRARIES})
-MESSAGE(STATUS "SharedLib_LOCATION: " ${SharedLib_LOCATION})
+#MESSAGE(STATUS "SharedLib_LOCATION: " ${SharedLib_LOCATION})
 MESSAGE(STATUS "SharedLib_DIR: " ${SharedLib_DIR})
 
 add_subdirectory(App)
@@ -17,10 +14,12 @@ add_executable(app
   ${app_hdr}
 )
 
+#[[
 target_include_directories(app PRIVATE 
 	#$<TARGET_PROPERTY:SharedLib,INTERFACE_INCLUDE_DIRECTORIES>
 	#$<TARGET_PROPERTY:Qt5::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
 )
+#]]
 
 target_link_libraries(app PRIVATE 
 	SharedLib
