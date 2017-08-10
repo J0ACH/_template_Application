@@ -1,5 +1,5 @@
 
-find_package(SharedLib 0.2.1 REQUIRED)
+find_package(SharedLib 0.2.0 REQUIRED)
 
 #MESSAGE(STATUS "SharedLib_INCLUDE_DIRS: " ${SharedLib_INCLUDE_DIRS})
 #MESSAGE(STATUS "SharedLib_LIBRARIES: " ${SharedLib_LIBRARIES})
