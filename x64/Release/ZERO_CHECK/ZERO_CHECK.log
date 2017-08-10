@@ -1,0 +1,38 @@
+﻿  Checking Build System
+  CMake is re-running because C:/GitHub/_template_Application/build/CMakeFiles/generate.stamp is out-of-date.
+    the file 'C:/GitHub/_template_Application/CMakeLists.txt'
+    is newer than 'C:/GitHub/_template_Application/build/CMakeFiles/generate.stamp.depend'
+    result='-1'
+  -- CMAKE_PREFIX_PATH:C:\Qt\5.9.1\msvc2017_64
+  -- CMAKE_SYSTEM_PREFIX_PATH:C:/Program FilesC:/Program Files (x86)C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO/2017/COMMUNITY/COMMON7/IDE/COMMONEXTENSIONS/MICROSOFT/CMAKE/CMakeC:/GitHub/_template_Application/install
+  -- SharedLib package found ...
+  -- 	 - SharedLib_VERSION: 0.2.1
+  -- 	 - SharedLib_DIR: C:/Program Files (x86)/SharedLib/lib/cmake/SharedLib
+  -- 	 - SharedLib_LIBRARIES: C:/Program Files (x86)/SharedLib/lib/SharedLib.lib
+  -- 	 - SharedLib_LOCATION: C:/Program Files (x86)/SharedLib/bin/SharedLib.dll
+  -- 	 - SharedLib_INCLUDE_DIRS: 
+  -- 		 - C:/Qt/5.9.1/msvc2017_64/include/
+  -- 		 - C:/Qt/5.9.1/msvc2017_64/include/QtCore
+  -- 		 - C:/Qt/5.9.1/msvc2017_64/.//mkspecs/win32-msvc
+  -- 		 - C:/Qt/5.9.1/msvc2017_64/include/QtGui
+  -- 		 - C:/Qt/5.9.1/msvc2017_64/include//QtANGLE
+  -- 		 - C:/Qt/5.9.1/msvc2017_64/include/QtWidgets
+  -- 		 - C:/Program Files (x86)/SharedLib/include
+  -- SharedLib package done...
+  
+  -- SharedLib_DIR: C:/Program Files (x86)/SharedLib/lib/cmake/SharedLib
+  -- InstallRequiredLibraries macro to directory . init
+  -- MS_DLLS: 
+  -- 	-C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Redist/MSVC/14.10.25008/x64/Microsoft.VC150.CRT/vcruntime140.dll
+  -- 	-C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Redist/MSVC/14.10.25008/x64/Microsoft.VC150.CRT/msvcp140.dll
+  -- QT_DLLS: 
+  -- 	-C:/Qt/5.9.1/msvc2017_64/bin/Qt5Core.dll
+  -- 	-C:/Qt/5.9.1/msvc2017_64/bin/Qt5Gui.dll
+  -- 	-C:/Qt/5.9.1/msvc2017_64/bin/Qt5Widgets.dll
+  -- QT_PLATFORMS: 
+  -- 	-C:/Qt/5.9.1/msvc2017_64/plugins/platforms/qwindows.dll
+  -- Bundle macro done...
+  
+  -- Configuring done
+  -- Generating done
+  -- Build files have been written to: C:/GitHub/_template_Application/build

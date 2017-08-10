@@ -5,7 +5,7 @@
       "name": "Debug",
       "generator": "Visual Studio 15 2017 Win64",
       "configurationType": "Debug",
-      "buildRoot": "${projectDir}\\build\\cache\\${name}",
+      "buildRoot": "${projectDir}\\build",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-m -v:minimal",
       "ctestCommandArgs": ""
@@ -14,7 +14,7 @@
       "name": "Release",
       "generator": "Visual Studio 15 2017 Win64",
       "configurationType": "Release",
-      "buildRoot": "${projectDir}\\build\\cache\\${name}",
+      "buildRoot": "${projectDir}\\build",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-m -v:minimal",
       "ctestCommandArgs": ""

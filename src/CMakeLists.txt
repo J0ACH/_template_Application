@@ -12,6 +12,10 @@ add_executable(app
   ${app_src}
   ${app_hdr}
 )
+set_target_properties( app
+    PROPERTIES
+		RUNTIME_OUTPUT_DIRECTORY bin
+)
 
 target_link_libraries(app PRIVATE 
 	SharedLib
@@ -23,8 +27,8 @@ if(WIN32)
 	endif()
 endif(WIN32)
 
-install(TARGETS app RUNTIME DESTINATION install)
-install(FILES $<TARGET_FILE:SharedLib> DESTINATION install)
+install(TARGETS app RUNTIME DESTINATION .)
+install(FILES $<TARGET_FILE:SharedLib> DESTINATION .)
 
 include(InstallRequiredLibraries)
-InstallRequiredLibraries(install)
+InstallRequiredLibraries(.)

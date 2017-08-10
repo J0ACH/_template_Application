@@ -1,9 +1,6 @@
 project (Application)
 cmake_minimum_required( VERSION 3.7.2 )
 
-#SET(BUILD_DIR ${CMAKE_SOURCE_DIR}/build)
-#SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BUILD_DIR}/bin)
-set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/build)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake_modules)
 set(CMAKE_AUTOMOC ON)
 
@@ -26,10 +23,25 @@ add_subdirectory(src)
 
 # CPACK SETUP ###################################################
 
-#INCLUDE(InstallRequiredSystemLibraries)
+if(WIN32)
+	set(CPACK_GENERATOR NSIS)
+	set(CPACK_PACKAGE_NAME "MyLib")
+	set(CPACK_PACKAGE_VENDOR "CMake.org")
+	set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "MyLib - CPack Component Installation Example")
+	set(CPACK_PACKAGE_VERSION "1.0.0")
+	set(CPACK_PACKAGE_VERSION_MAJOR "1")
+	set(CPACK_PACKAGE_VERSION_MINOR "0")
+	set(CPACK_PACKAGE_VERSION_PATCH "0")
+	set(CPACK_PACKAGE_INSTALL_DIRECTORY "CPack Component Example")
+	set(CPACK_NSIS_MODIFY_PATH ON)
+endif()
+include(CPack)
 
+#[[
+#INCLUDE(InstallRequiredSystemLibraries)
 SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "My funky project")
 SET(CPACK_PACKAGE_VENDOR "Me, myself, and I")
+SET(CPACK_GENERATOR "ZIP")
 #SET(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/ReadMe.txt")
 #SET(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/Copyright.txt")
 SET(CPACK_PACKAGE_VERSION_MAJOR "1")
@@ -52,3 +64,4 @@ ELSE(WIN32 AND NOT UNIX)
 ENDIF(WIN32 AND NOT UNIX)
 SET(CPACK_PACKAGE_EXECUTABLES "MyExecutable" "My Executable")
 INCLUDE(CPack)
+#]]
