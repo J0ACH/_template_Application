@@ -28,27 +28,27 @@ FUNCTION (InstallRequiredLibraries InstallDir)
 			MESSAGE(STATUS \t - ${onePath})
 		ENDFOREACH(onePath)
 
-		INSTALL(FILES ${MS_DLLS} DESTINATION ${InstallDir})
+		INSTALL(FILES ${MS_DLLS} DESTINATION .)
 
 	ENDIF(MSVC)
 	
 	find_file (qtcore 
-		NAMES Qt5Core.dll Qt5Gui.dll
-		PATHS "C:/Qt/5.9.1/msvc2017_64/bin"
+		NAMES Qt5Core.dll
+		#PATHS "C:/Qt/5.9.1/msvc2017_64/bin"
 		#NO_DEFAULT_PATH
 	)
 	LIST(APPEND QT_DLLS ${qtcore})
 	
 	find_file (qtgui 
 		NAMES Qt5Gui.dll
-		PATHS "C:/Qt/5.9.1/msvc2017_64/bin"
+		#PATHS "C:/Qt/5.9.1/msvc2017_64/bin"
 		#NO_DEFAULT_PATH
 	)
 	LIST(APPEND QT_DLLS ${qtgui})
 	
 	find_file (qtwidgets
 		NAMES Qt5Widgets.dll
-		PATHS "C:/Qt/5.9.1/msvc2017_64/bin"
+		#PATHS "C:/Qt/5.9.1/msvc2017_64/bin"
 		#NO_DEFAULT_PATH
 	)
 	LIST(APPEND QT_DLLS ${qtwidgets})
@@ -60,7 +60,9 @@ FUNCTION (InstallRequiredLibraries InstallDir)
 
 	find_file (qtwin
 		NAMES qwindows.dll
-		PATHS "C:/Qt/5.9.1/msvc2017_64/plugins/platforms"
+		PATHS 
+			#"C:/Qt/5.9.1/msvc2017_64/plugins/platforms"
+			#"C:/Qt/5.9/msvc2017_64/plugins/platforms"
 		#NO_DEFAULT_PATH
 	)
 	LIST(APPEND QT_PLATFORMS ${qtwin})
@@ -69,10 +71,9 @@ FUNCTION (InstallRequiredLibraries InstallDir)
 	FOREACH(onePath ${QT_PLATFORMS})
 		MESSAGE(STATUS \t - ${onePath})
 	ENDFOREACH(onePath)
-
-		
-	INSTALL(FILES ${QT_DLLS} DESTINATION ${InstallDir})
-	INSTALL(FILES ${QT_PLATFORMS} DESTINATION ${InstallDir}/platforms)
+			
+	INSTALL(FILES ${QT_DLLS} DESTINATION .)
+	INSTALL(FILES ${QT_PLATFORMS} DESTINATION platforms)
 
 	
 	MESSAGE(STATUS "Bundle macro done...\n")

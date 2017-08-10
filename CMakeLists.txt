@@ -4,6 +4,14 @@ cmake_minimum_required( VERSION 3.7.2 )
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake_modules)
 set(CMAKE_AUTOMOC ON)
 
+set(cacheDir ${CMAKE_SOURCE_DIR}/cache)
+set(buildDir ${CMAKE_SOURCE_DIR}/build)
+set(installDir ${CMAKE_SOURCE_DIR}/install)
+
+message(STATUS "\t cacheDir: ${cacheDir}")
+message(STATUS "\t buildDir: ${buildDir}")
+message(STATUS "\t installDir: ${installDir}")
+
 #[[
 SET(EXTERNAL_BUILD_LOCATION ${BUILD_DIR}/external_libraries/SharedLib)
 
@@ -16,15 +24,17 @@ DownloadGit (
 )
 #]]
 
-message(STATUS "CMAKE_PREFIX_PATH:" $ENV{CMAKE_PREFIX_PATH})
-message(STATUS "CMAKE_SYSTEM_PREFIX_PATH:" ${CMAKE_SYSTEM_PREFIX_PATH})
+#message(STATUS "CMAKE_PREFIX_PATH:" $ENV{CMAKE_PREFIX_PATH})
+#message(STATUS "CMAKE_SYSTEM_PREFIX_PATH:" ${CMAKE_SYSTEM_PREFIX_PATH})
 
-add_subdirectory(src)
+add_subdirectory(source)
 
 # CPACK SETUP ###################################################
 
 if(WIN32)
-	set(CPACK_GENERATOR NSIS)
+	#set(CPACK_GENERATOR NSIS)
+	set(CPACK_GENERATOR WIX)
+	
 	set(CPACK_PACKAGE_NAME "MyLib")
 	set(CPACK_PACKAGE_VENDOR "CMake.org")
 	set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "MyLib - CPack Component Installation Example")

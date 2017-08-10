@@ -1,5 +1,5 @@
 
-find_package(SharedLib 0.2.0 REQUIRED)
+find_package(SharedLib 0.2.1 REQUIRED)
 
 #MESSAGE(STATUS "SharedLib_INCLUDE_DIRS: " ${SharedLib_INCLUDE_DIRS})
 #MESSAGE(STATUS "SharedLib_LIBRARIES: " ${SharedLib_LIBRARIES})
@@ -12,9 +12,11 @@ add_executable(app
   ${app_src}
   ${app_hdr}
 )
+
+string(TOUPPER ${CMAKE_CONFIGURATION_TYPES} configType)
 set_target_properties( app
     PROPERTIES
-		RUNTIME_OUTPUT_DIRECTORY bin
+		RUNTIME_OUTPUT_DIRECTORY_${configType} ${buildDir}/bin
 )
 
 target_link_libraries(app PRIVATE 
