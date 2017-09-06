@@ -11,6 +11,7 @@ FUNCTION (InstallRequiredLibraries InstallDir)
 			NAMES vcruntime140.dll
 			PATHS 
 				"${programfiles_DIR}/Microsoft Visual Studio/2017/Community/VC/Redist/MSVC/14.10.25008/x64/Microsoft.VC150.CRT"
+				"${programfiles_DIR}/Microsoft Visual Studio/2017/Community/VC/Redist/MSVC/14.11.25325/x64/Microsoft.VC141.CRT"
 			NO_DEFAULT_PATH
 		)
 		LIST(APPEND MS_DLLS ${vcruntime})
@@ -18,7 +19,8 @@ FUNCTION (InstallRequiredLibraries InstallDir)
 		find_file (msvcp 
 			NAMES msvcp140.dll
 			PATHS 
-				"${programfiles_DIR}/Microsoft Visual Studio/2017/Community/VC/Redist/MSVC/14.10.25008/x64/Microsoft.VC150.CRT"			
+				"${programfiles_DIR}/Microsoft Visual Studio/2017/Community/VC/Redist/MSVC/14.10.25008/x64/Microsoft.VC150.CRT"
+				"${programfiles_DIR}/Microsoft Visual Studio/2017/Community/VC/Redist/MSVC/14.11.25325/x64/Microsoft.VC141.CRT"
 			NO_DEFAULT_PATH
 		)
 		LIST(APPEND MS_DLLS ${msvcp})
@@ -61,8 +63,8 @@ FUNCTION (InstallRequiredLibraries InstallDir)
 	find_file (qtwin
 		NAMES qwindows.dll
 		PATHS 
-			#"C:/Qt/5.9.1/msvc2017_64/plugins/platforms"
-			#"C:/Qt/5.9/msvc2017_64/plugins/platforms"
+			"C:/Qt/5.9.1/msvc2017_64/plugins/platforms"
+			"C:/Qt/5.9/msvc2017_64/plugins/platforms"
 		#NO_DEFAULT_PATH
 	)
 	LIST(APPEND QT_PLATFORMS ${qtwin})

@@ -13,21 +13,6 @@ message(STATUS "\t cacheDir: ${cacheDir}")
 message(STATUS "\t buildDir: ${buildDir}")
 message(STATUS "\t installDir: ${installDir}")
 
-#[[
-SET(EXTERNAL_BUILD_LOCATION ${BUILD_DIR}/external_libraries/SharedLib)
-
-INCLUDE(DownloadGit)
-DownloadGit (
-	PROJECT SharedLib
-	GIT_REPOSITORY https://github.com/J0ACH/_template_SharedLib.git
-	GIT_FOLDERS "bbb" "ccc"
-	SOURCE_DIR ${BUILD_DIR}/external_libraries/SharedLib
-)
-#]]
-
-#message(STATUS "CMAKE_PREFIX_PATH:" $ENV{CMAKE_PREFIX_PATH})
-#message(STATUS "CMAKE_SYSTEM_PREFIX_PATH:" ${CMAKE_SYSTEM_PREFIX_PATH})
-
 add_subdirectory(source)
 
 # CPACK SETUP ###################################################

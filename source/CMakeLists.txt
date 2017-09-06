@@ -1,10 +1,10 @@
 
-find_package(SharedLib 0.2.0 REQUIRED)
+find_package(Jui 0.0.3 REQUIRED)
 
 #MESSAGE(STATUS "SharedLib_INCLUDE_DIRS: " ${SharedLib_INCLUDE_DIRS})
 #MESSAGE(STATUS "SharedLib_LIBRARIES: " ${SharedLib_LIBRARIES})
 #MESSAGE(STATUS "SharedLib_LOCATION: " ${SharedLib_LOCATION})
-MESSAGE(STATUS "SharedLib_DIR: " ${SharedLib_DIR})
+#MESSAGE(STATUS "SharedLib_DIR: " ${SharedLib_DIR})
 
 add_subdirectory(App)
 
@@ -20,7 +20,7 @@ set_target_properties( app
 )
 
 target_link_libraries(app PRIVATE 
-	SharedLib
+	Jui
 )
 
 if(WIN32)
@@ -30,7 +30,7 @@ if(WIN32)
 endif(WIN32)
 
 install(TARGETS app RUNTIME DESTINATION .)
-install(FILES $<TARGET_FILE:SharedLib> DESTINATION .)
+install(FILES $<TARGET_FILE:Jui> DESTINATION .)
 
 include(InstallRequiredLibraries)
 InstallRequiredLibraries(.)
