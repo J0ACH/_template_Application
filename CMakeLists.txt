@@ -1,17 +1,10 @@
-cmake_minimum_required( VERSION 3.7.2 )
+cmake_minimum_required( VERSION 3.8 )
 cmake_policy(SET CMP0048 NEW)
 project (Application VERSION 0.0.1)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake_modules)
 set(CMAKE_AUTOMOC ON)
 
-set(cacheDir ${CMAKE_SOURCE_DIR}/cache)
-set(buildDir ${CMAKE_SOURCE_DIR}/build)
-set(installDir ${CMAKE_SOURCE_DIR}/install)
-
-message(STATUS "\t cacheDir: ${cacheDir}")
-message(STATUS "\t buildDir: ${buildDir}")
-message(STATUS "\t installDir: ${installDir}")
 
 #[[
 SET(EXTERNAL_BUILD_LOCATION ${BUILD_DIR}/external_libraries/SharedLib)
